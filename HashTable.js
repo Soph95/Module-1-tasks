@@ -1,13 +1,13 @@
 const crypto = require("crypto");
 
 class HashTable {
-  constructor() {
-    this.backingArray = [];
+  constructor(arrayLength = 1000) {
+    this.backingArray = new Array(arrayLength);
   }
   set(key, value) {
     const hex = crypto.createHash("md5").update(value).digest("hex");
     const decimal = parseInt(hex, 16);
-    const index = decimal % 1000;
+    const index = decimal % this.backingArray.length;
     console.log(index);
     this.backingArray[index] = value;
     return this.backingArray[index];
