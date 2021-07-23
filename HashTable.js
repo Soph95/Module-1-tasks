@@ -5,17 +5,20 @@ class HashTable {
     this.backingArray = new Array(arrayLength);
   }
   set(key, value) {
-    const hex = crypto.createHash("md5").update(value).digest("hex");
-    const decimal = parseInt(hex, 16);
-    const index = decimal % this.backingArray.length;
-    console.log(index);
+    const index = this.getIndex(key);
     this.backingArray[index] = value;
+    console.log(index);
+  }
+
+  get(key) {
+    const index = getIndex(key);
     return this.backingArray[index];
   }
 
-  get(key) {}
+  getIndex(key) {
+    const hex = crypto.createHash("md5").update(key).digest("hex");
+    const decimal = parseInt(hex, 16);
+    return decimal % this.backingArray.length;
+  }
 }
-
-const example = new HashTable();
-//console.log(example.set("Sophia", "12345678465"));
 
