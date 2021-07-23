@@ -7,7 +7,6 @@ class HashTable {
   set(key, value) {
     const index = this.getIndex(key);
     this.backingArray[index] = value;
-    console.log(index);
   }
 
   get(key) {
