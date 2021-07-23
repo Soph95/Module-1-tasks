@@ -1,14 +1,12 @@
+let letters = {};
 function encrypt(message, key) {
-  let letters = {};
-
   let counter = 1;
   for (let i = 65; i <= 90; i++) {
     letters[String.fromCharCode(i)] = counter;
     counter++;
   }
 
-  const messageValues = message.split("").map((letter) => letters[letter]);
-  const keyValues = key.split("").map((letter) => letters[letter]);
+  const [messageValues, keyValues] = messageAndKeyValues(message, key);
 
   let encryptCode = [];
   for (let i = 0; i < messageValues.length; i++) {
@@ -26,7 +24,6 @@ function encrypt(message, key) {
   return encryptedKey;
 }
 const result = encrypt("CAT", "AHY");
-console.log(result);
 
 function decrypt(encryptedMessage, key) {
   let letters = {};
@@ -37,12 +34,7 @@ function decrypt(encryptedMessage, key) {
     counter++;
   }
 
-  const messageValues = encryptedMessage
-    .split("")
-    .map((letter) => letters[letter]);
-  const keyValues = key.split("").map((letter) => letters[letter]);
-
-  console.log(messageValues, keyValues);
+  const [messageValues, keyValues] = messageAndKeyValues(encryptedMessage, key);
 
   let encryptCode = [];
   for (let i = 0; i < messageValues.length; i++) {
@@ -59,3 +51,9 @@ function decrypt(encryptedMessage, key) {
   return decryptedKey;
 }
 console.log(decrypt(result, "AHY"));
+
+function messageAndKeyValues(message, key) {
+  const messageValues = message.split("").map((letter) => letters[letter]);
+  const keyValues = key.split("").map((letter) => letters[letter]);
+  return [messageValues, keyValues];
+}
