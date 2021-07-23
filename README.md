@@ -1,3 +1,3 @@
 # Module-1-tasks
-HashTable.js - Attemped Hash table exercise, still needs completing. 
+HashTable.js - Almost complete. 
 Encrypt.js - Encrypt and Decrypt function - need to go through and refactor. 
