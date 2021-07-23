@@ -17,10 +17,5 @@ class HashTable {
 }
 
 const example = new HashTable();
-console.log(example.set("Sophia", "12345678465"));
+//console.log(example.set("Sophia", "12345678465"));
 
-// class PasswordVault {
-//   constructor(path) {}
-//   add(username, password) {}
-//   check(username, password) {}
-// }
