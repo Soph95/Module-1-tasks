@@ -5,7 +5,6 @@ describe("HashTable tests", () => {
     new HashTable();
   });
   it("should allow you to set a key and value", () => {
-    new HashTable();
     const example = new HashTable();
     example.set("exampleTxt", "example");
   });
